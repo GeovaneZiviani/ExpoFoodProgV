@@ -1,0 +1,29 @@
+
+<div xmlns:th="http://www.thymeleaf.org" th:fragment="header">
+	<nav id="primary-navigation">
+		<ul class="nav-list">
+			<li><a href="#" th:href="@{/}" class="active">HOME</a></li>
+			<li class="has-children"><a href="#" class="">livro</a>
+				<ul>
+					<li><a href="#" class=""> </a></li>
+					<li>
+						<p class="coming-soon"><span class="coming-soon-name">Mais opções</span><span class="coming-soon-text" style="font-size:0pt">Em Breve...</span></p>
+					</li>
+				</ul>
+			</li>
+			<li class="has-children"><a href="#" class="">TestCrud</a>
+				<ul>
+					<li><a href="#" th:href="@{/users}">UserList</a></li>
+					<li><a href="#" th:href="@{/user/new}">UserCreat</a></li>
+					<li><a href="#" th:href="@{/players}">PlayerList</a></li>
+					<li><a href="#" th:href="@{/player/new}">PlayerCreat</a></li>
+					<li><a href="#" th:href="@{/chronicles}">ChronicleList</a></li>
+					<li><a href="#" th:href="@{/chronicle/new}">ChronicleCreat</a></li>
+				</ul>
+			</li>
+			<li><a href="#" class="">Login</a></li>
+			<li><a href="#" class="">Cadastra</a></li>
+		</ul>
+		<div class="close"></div>
+	</nav>
+</div>
