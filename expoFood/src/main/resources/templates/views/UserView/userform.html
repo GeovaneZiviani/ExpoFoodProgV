@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+<title>Use Addr</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<!-- Bootstrap Core CSS -->
+<link href="/css/bootstrap.min.css" rel="stylesheet" />
+
+<!-- Custom CSS -->
+<link href="/css/heroic-features.css" rel="stylesheet" />
+
+
+
+</head>
+<body>
+	<th:block th:include="fragment/header :: header"></th:block>
+	<main class="main-container">
+
+	<div class="container">
+
+		<h2>Usuário Detalhes</h2>
+		<div>
+			<form class="form-horizontal" th:object="${user}"
+				th:action="@{/user}" method="post">
+				<input type="hidden" th:field="*{id}" />
+				<div class="form-group">
+					<label class="col-sm-2 control-label"> Usuário Id:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{id}"
+							disabled="disabled" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Nome:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{name}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">email:</label>
+					<div class="col-sm-10">
+						<input type="email" class="form-control" th:field="*{email}" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Cidade:</label>
+					<div class="col-sm-10">
+						<select id="enderecos" name="enderecos[]" class="selectpicker"
+							data-live-search="true" th:field="*{enderecos}" size="10"
+							th:multiple="true">
+							<option th:each="endereco: ${enderecos}"
+								th:value="${endereco.id}" th:text="${endereco.city}">livro</option>
+						</select>
+
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">estado:</label>
+					<div class="col-sm-10">
+						<select id="enderecos" name="enderecos[]" class="selectpicker"
+							data-live-search="true" th:field="*{enderecos}" size="10"
+							th:multiple="true">
+							<option th:each="endereco: ${enderecos}"
+								th:value="${endereco.id}" th:text="${endereco.estado}">livro</option>
+						</select>
+
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Pais:</label>
+					<div class="col-sm-10">
+						<select id="enderecos" name="enderecos[]" class="selectpicker"
+							data-live-search="true" th:field="*{enderecos}" size="10"
+							th:multiple="true">
+							<option th:each="endereco: ${enderecos}"
+								th:value="${endereco.id}" th:text="${endereco.pais}">livro</option>
+						</select>
+
+					</div>
+				</div>
+
+
+				<div class="row">
+					<button type="submit" class="btn btn-default">Submit</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	</main>
+
+	<script th:src="@{/js/core.js}"></script>
+
+</body>
+</html>

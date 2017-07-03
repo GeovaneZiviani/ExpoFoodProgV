@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head lang="en">
+ <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>Livros</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link href="css/heroic-features.css" rel="stylesheet"/>
+
+ 
+
+</head>
+<body>
+	<th:block th:include="fragment/header :: header"></th:block>
+	<main class="main-container">
+		<div class="container">
+	
+				<h2>Lista de  Manga</h2>
+				 <a href="/manga/new">+</a>
+				<table class="table table-striped">
+					<tr>
+						<th>Manga ID</th>
+						<th>titulo</th>
+						<th>Genero</th>
+						<th>valor R$:</th>
+						<th>Comprador:</th>
+						<th>View</th>
+						<th>Edit</th>
+						<th>Delete</th>
+					</tr>
+					<tr th:each="manga : ${manga}">
+						<td th:text="${manga.id}">Id</td>
+						<td th:text="${manga.titulo}">Titulo</td>
+						<td th:text="${manga.generoManga}">Genero</td>
+						<td th:text="${manga.valor}">valor</td>
+						<td th:text="${manga.users.name}">Comprador</td>
+						<td><a th:href="${ '/manga/' + manga.id}">View</a></td>
+						<td><a th:href="${'/manga/edit/' + manga.id}">Edit</a></td>
+						<td><a th:href="${'/manga/delete/' + manga.id}">Delete</a></td>
+					</tr>
+			</table>
+		     
+		</div>
+	</main>
+
+	<script th:src="@{/js/core.js}" ></script>
+
+</body>
+</html>
